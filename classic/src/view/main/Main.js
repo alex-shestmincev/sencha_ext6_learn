@@ -16,13 +16,16 @@ Ext.define('MyApp.view.main.Main', {
         'MyApp.view.main.MainController',
         'MyApp.view.main.MainModel',
         'MyApp.view.main.List',
-        'MyApp.view.main.CityList'
+        'MyApp.view.main.CityList',
+        'MyApp.view.main.UploadFile'
     ],
+
 
     controller: 'main',
     viewModel: 'main',
 
     ui: 'navigation',
+    layout:'column',
 
     tabBarHeaderPosition: 1,
     titleRotation: 0,
@@ -76,6 +79,14 @@ Ext.define('MyApp.view.main.Main', {
         }
     },
 
+    tbar: [{
+        xtype: 'button',
+        text: 'Add',
+        handler: 'onAdd'
+    }],
+
+
+
     items: [{
         title: 'Home',
         iconCls: 'fa-home',
@@ -109,10 +120,11 @@ Ext.define('MyApp.view.main.Main', {
             html: '{loremIpsum}'
         }
     }, {
-        title: 'Settings23',
-        iconCls: 'fa-cog',
-        bind: {
-            html: '{test}'
-        }
+        title: 'Form',
+        iconCls: 'fa-home',
+        // The following grid shares a store with the classic version's grid as well!
+        items: [{
+            xtype: 'myform'
+        }]
     }]
 });

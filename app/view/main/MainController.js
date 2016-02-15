@@ -9,6 +9,17 @@ Ext.define('MyApp.view.main.MainController', {
 
     alias: 'controller.main',
 
+    routes : {
+        'users' : 'onUsers'
+    },
+
+    mixins: ['MyApp.view.main.LoadMixin'],
+
+    onUsers: function () {
+      console.log('arguments', arguments);
+      this.redirectTo('user/1234');
+    },
+
     onItemSelected: function (sender, record) { console.log('onItemSelected sender, record', sender, record)
         Ext.Msg.confirm('Confirm', 'Are you sure?', 'onConfirm', this);
     },
@@ -21,5 +32,9 @@ Ext.define('MyApp.view.main.MainController', {
         if (choice === 'yes') {
             //
         }
+    },
+
+    onAdd: function () {
+        //console.log('onAdd', arguments);
     }
 });

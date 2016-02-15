@@ -5,16 +5,18 @@
  */
 Ext.define('MyApp.Application', {
     extend: 'Ext.app.Application',
-    
+
     name: 'MyApp',
 
     stores: [
         // TODO: add global / shared stores here
     ],
-    
+
     launch: function () {
         // TODO - Launch the application
     },
+
+    defaultToken : 'home',
 
     onAppUpdate: function () {
         Ext.Msg.confirm('Application Update', 'This application has an update, reload?',
